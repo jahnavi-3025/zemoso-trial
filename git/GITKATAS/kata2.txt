@@ -1,0 +1,198 @@
+BASIC STAGING
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2 (master)
+$ cd basic-staging
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-staging (master)
+$ source setup.sh
+Initialized empty Git repository in C:/Users/JahnaviP/Desktop/dummy2/basic-staging/ee/.git/
+Successfully configured local username and email
+Successfully disable local GPG signing
+warning: in the working copy of 'file.txt', LF will be replaced by CRLF the next timtouches it
+[master (root-commit) 180ab45] 1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file.txt
+Successfully unset local username and email
+Successfully unset local GPG signing
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-staging/exercise (master)
+$ echo file.txt
+file.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-staging/exercise (master)
+$ cat file.txt
+1
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-staging/exercise (master)
+$ echo 2 > file.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-staging/exercise (master)
+$ get diff
+bash: get: command not found
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-staging/exercise (master)
+$ git diff
+warning: in the working copy of 'file.txt', LF will be replaced by CRLF the next timtouches it
+diff --git a/file.txt b/file.txt
+index d00491f..0cfbf08 100644
+--- a/file.txt
++++ b/file.txt
+@@ -1 +1 @@
+-1
++2
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-staging/exercise (master)
+$ git diff --staged
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-staging/exercise (master)
+$ git add file.txt
+warning: in the working copy of 'file.txt', LF will be replaced by CRLF the next timtouches it
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-staging/exercise (master)
+$ git fiff
+git: 'fiff' is not a git command. See 'git --help'.
+
+The most similar command is
+        diff
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-staging/exercise (master)
+$ git diff
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-staging/exercise (master)
+$ git diff --staged
+diff --git a/file.txt b/file.txt
+index d00491f..0cfbf08 100644
+--- a/file.txt
++++ b/file.txt
+@@ -1 +1 @@
+-1
++2
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-staging/exercise (master)
+$ echo 3 > file.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-staging/exercise (master)
+$ git diff
+warning: in the working copy of 'file.txt', LF will be replaced by CRLF the next timtouches it
+diff --git a/file.txt b/file.txt
+index 0cfbf08..00750ed 100644
+--- a/file.txt
++++ b/file.txt
+@@ -1 +1 @@
+-2
++3
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-staging/exercise (master)
+$ git diff --staged
+diff --git a/file.txt b/file.txt
+index d00491f..0cfbf08 100644
+--- a/file.txt
++++ b/file.txt
+@@ -1 +1 @@
+-1
++2
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-staging/exercise (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   file.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file.txt
+
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-staging/exercise (master)
+$ git restore --staged file.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-staging/exercise (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-staging/exercise (master)
+$ git diff --staged
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-staging/exercise (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-staging/exercise (master)
+$ git add file.txt
+warning: in the working copy of 'file.txt', LF will be replaced by CRLF the next timtouches it
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-staging/exercise (master)
+$ git commit -m "Updated"
+[master a3fe63d] Updated
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-staging/exercise (master)
+$ git log
+commit a3fe63dd00dc3571556e807580f909a3ff2574fd (HEAD -> master)
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Wed Nov 9 12:32:59 2022 +0530
+
+    Updated
+
+commit 180ab45c59eb99d39e6129130821ec871d30049a
+Author: git-katas trainer bot <git-katas@example.com>
+Date:   Wed Nov 9 12:13:28 2022 +0530
+
+    1
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-staging/exercise (master)
+$ echo 4 > file.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-staging/exercise (master)
+$ cat file.txt
+4
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-staging/exercise (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-staging/exercise (master)
+$ git restore fie.txt
+error: pathspec 'fie.txt' did not match any file(s) known to git
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-staging/exercise (master)
+$ git restore file.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-staging/exercise (master)
+$ cat file.txt
+3
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-staging/exercise (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-staging/exercise (master)
+$ git remote add origin https://github.com/jahnavi-aiml/Zemoso-GIT-katas.git
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-staging/exercise (master)
+$ git branch -M master
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-staging/exercise (master)
+$ git push -u origin master
+--------------------------------------------------------------------------------------------------------------------------------------

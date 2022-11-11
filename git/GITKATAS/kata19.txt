@@ -1,0 +1,87 @@
+GIT TAGS
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/git-tag (master)
+$ source setup.sh
+Initialized empty Git repository in C:/Users/JahnaviP/Desktop/dummy2/git-tag/exercise/.git/
+warning: in the working copy of 'dummy.txt', LF will be replaced by CRLF the next time Git touches it
+[master (root-commit) 1b6b698] dummy commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 dummy.txt
+warning: in the working copy of 'dummy.txt', LF will be replaced by CRLF the next time Git touches it
+[master 34c605b] adding more content to dummy.txt
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/git-tag/exercise (master)
+$ git tag
+dummy
+dummy2
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/git-tag/exercise (master)
+$ touch file1.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/git-tag/exercise (master)
+$ echo "hello" > file1.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/git-tag/exercise (master)
+$ git add file1.txt
+warning: in the working copy of 'file1.txt', LF will be replaced by CRLF the next time Git touches it
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/git-tag/exercise (master)
+$ git commit -m "File committed"
+[master 4393c92] File committed
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file1.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/git-tag/exercise (master)
+$ git log --oneline
+4393c92 (HEAD -> master) File committed
+34c605b (tag: dummy2) adding more content to dummy.txt
+1b6b698 (tag: dummy) dummy commit
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/git-tag/exercise (master)
+$ git tag -a my_tag 4393c92 -m "My tag created"
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/git-tag/exercise (master)
+$ git tag -n
+dummy           dummy commit
+dummy2          don't worry, be happy
+my_tag          My tag created
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/git-tag/exercise (master)
+$ git log --oneline
+4393c92 (HEAD -> master, tag: my_tag) File committed
+34c605b (tag: dummy2) adding more content to dummy.txt
+1b6b698 (tag: dummy) dummy commit
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/git-tag/exercise (master)
+$ git tag cata
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/git-tag/exercise (master)
+$ git log --oneline
+4393c92 (HEAD -> master, tag: my_tag, tag: cata) File committed
+34c605b (tag: dummy2) adding more content to dummy.txt
+1b6b698 (tag: dummy) dummy commit
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/git-tag/exercise (master)
+$ git tag
+cata
+dummy
+dummy2
+my_tag
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/git-tag/exercise (master)
+$ git tag -n
+cata            File committed
+dummy           dummy commit
+dummy2          don't worry, be happy
+my_tag          My tag created
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/git-tag/exercise (master)
+$ git tag -d cata
+Deleted tag 'cata' (was 4393c92)
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/git-tag/exercise (master)
+$ git tag
+dummy
+dummy2
+my_tag

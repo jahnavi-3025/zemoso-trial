@@ -1,0 +1,159 @@
+FF-MERGE
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2 (master)
+$ cd ff-merge
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge (master)
+$ source setuo.sh
+bash: setuo.sh: No such file or directory
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge (master)
+$ source setup.sh
+Initialized empty Git repository in C:/Users/JahnaviP/Desktop/dummy2/ff-merge/exercise/.git/
+[master (root-commit) 3e7250a] Add file greeting.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 greeting.txt
+warning: in the working copy of 'greeting.txt', LF will be replaced by CRLF the next time Git touches it
+[master 1e8de71] Add content to greeting.txt
+ 1 file changed, 1 insertion(+)
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (master)
+$ cat greeting.txt
+hello
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (master)
+$ git branch feature/uppercase
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (master)
+$ git switch feature/uppercase
+Switched to branch 'feature/uppercase'
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (feature/uppercase)
+$ git status
+On branch feature/uppercase
+nothing to commit, working tree clean
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (feature/uppercase)
+$ echo "HELLO" > greeting.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (feature/uppercase)
+$ git add greeting.txt
+warning: in the working copy of 'greeting.txt', LF will be replaced by CRLF the next time Git touches it
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (feature/uppercase)
+$ git diff --staged
+diff --git a/greeting.txt b/greeting.txt
+index ce01362..e427984 100644
+--- a/greeting.txt
++++ b/greeting.txt
+@@ -1 +1 @@
+-hello
++HELLO
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (feature/uppercase)
+$ git commit -m "Staged file"
+[feature/uppercase a9cc546] Staged file
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (feature/uppercase)
+$ git status
+On branch feature/uppercase
+nothing to commit, working tree clean
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (feature/uppercase)
+$ git log
+commit a9cc54618e99d63420907d3c0fc4b95043859619 (HEAD -> feature/uppercase)
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Wed Nov 9 13:58:10 2022 +0530
+
+    Staged file
+
+commit 1e8de718ed3aea060967fbe9340120d717cb6908 (master)
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Wed Nov 9 13:50:22 2022 +0530
+
+    Add content to greeting.txt
+
+commit 3e7250a2daf27c58cc77797f63a1383af14f5098
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Wed Nov 9 13:50:22 2022 +0530
+
+    Add file greeting.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (feature/uppercase)
+$ git branch
+* feature/uppercase
+  master
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (feature/uppercase)
+$ git log --oneline --graph --all
+* a9cc546 (HEAD -> feature/uppercase) Staged file
+* 1e8de71 (master) Add content to greeting.txt
+* 3e7250a Add file greeting.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (feature/uppercase)
+$ git switch master
+Switched to branch 'master'
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (master)
+$ cat
+greeting.txt
+greeting.txt
+
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (master)
+$ cat greeting.txt
+hello
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (master)
+$ git diff feature/uppercase master
+diff --git a/greeting.txt b/greeting.txt
+index e427984..ce01362 100644
+--- a/greeting.txt
++++ b/greeting.txt
+@@ -1 +1 @@
+-HELLO
++hello
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (master)
+$ git switch feature/uppercase
+Switched to branch 'feature/uppercase'
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (feature/uppercase)
+$ cat greeting.txt
+HELLO
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (feature/uppercase)
+$ git switch master
+Switched to branch 'master'
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (master)
+$ git merge feature/uppercase
+Updating 1e8de71..a9cc546
+Fast-forward
+ greeting.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (master)
+$ cat greeting.txt
+HELLO
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (master)
+$ git switch feature/uppercase
+Switched to branch 'feature/uppercase'
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (feature/uppercase)
+$ cat greeting.txt
+HELLO
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (feature/uppercase)
+$ git switch master
+Switched to branch 'master'
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (master)
+$ cat greeting.txt
+HELLO
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (master)
+$ git branch -d feature/uppercase
+Deleted branch feature/uppercase (was a9cc546).
+

@@ -1,0 +1,115 @@
+AMEND
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2 (master)
+$ cd amend
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/amend (master)
+$ source setup.sh
+Initialized empty Git repository in C:/Users/JahnaviP/Desktop/dummy2/amend/exercise/.git/
+warning: in the working copy of 'foo.txt', LF will be replaced by CRLF the next time Git touches it
+[master (root-commit) 08353a3] feature 73
+ 1 file changed, 1 insertion(+)
+ create mode 100644 foo.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/amend/exercise (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        bar.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/amend/exercise (master)
+$ git log -p
+commit 08353a3a9c50389863264f26b2ecbb3b29f54f8e (HEAD -> master)
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Wed Nov 9 17:39:10 2022 +0530
+
+    feature 73
+
+diff --git a/foo.txt b/foo.txt
+new file mode 100644
+index 0000000..257cc56
+--- /dev/null
++++ b/foo.txt
+@@ -0,0 +1 @@
++foo
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/amend/exercise (master)
+$ git add bar.txt
+warning: in the working copy of 'bar.txt', LF will be replaced by CRLF the next time Git touches it
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/amend/exercise (master)
+$ git commit --amend
+[master cb60a08] feature 73
+ Date: Wed Nov 9 17:39:10 2022 +0530
+ 2 files changed, 2 insertions(+)
+ create mode 100644 bar.txt
+ create mode 100644 foo.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/amend/exercise (master)
+$ git log -p
+commit cb60a08753b21b8be678f020a30b066a474db40b (HEAD -> master)
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Wed Nov 9 17:39:10 2022 +0530
+
+    feature 73
+
+    committed
+
+diff --git a/bar.txt b/bar.txt
+new file mode 100644
+index 0000000..5716ca5
+--- /dev/null
++++ b/bar.txt
+@@ -0,0 +1 @@
++bar
+diff --git a/foo.txt b/foo.txt
+new file mode 100644
+index 0000000..257cc56
+--- /dev/null
++++ b/foo.txt
+@@ -0,0 +1 @@
++foo
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/amend/exercise (master)
+$ ls
+bar.txt  foo.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/amend/exercise (master)
+$ git commit --amend
+[master 5531f04] feature 73
+ Date: Wed Nov 9 17:39:10 2022 +0530
+ 2 files changed, 2 insertions(+)
+ create mode 100644 bar.txt
+ create mode 100644 foo.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/amend/exercise (master)
+$ git log -p
+commit 5531f04de30ffe3c5f72a976da40a636cc227b75 (HEAD -> master)
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Wed Nov 9 17:39:10 2022 +0530
+
+    feature 73
+
+    committed
+
+    2nd time Commit
+
+diff --git a/bar.txt b/bar.txt
+new file mode 100644
+index 0000000..5716ca5
+--- /dev/null
++++ b/bar.txt
+@@ -0,0 +1 @@
++bar
+diff --git a/foo.txt b/foo.txt
+new file mode 100644
+index 0000000..257cc56
+--- /dev/null
++++ b/foo.txt
+@@ -0,0 +1 @@
+
+--------------------------------------------------------------------------------------------------------------------------------------
+

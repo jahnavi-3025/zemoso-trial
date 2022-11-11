@@ -1,0 +1,323 @@
+BASIC BRANCHING:
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2 (master)
+$ cd basic-branching
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-branching (master)
+$ source setup.sh
+Initialized empty Git repository in C:/Users/JahnaviP/Desktop/dummy2/basic-branching/.git/
+Successfully configured local username and email
+Successfully disable local GPG signing
+warning: in the working copy of 'dummy.txt', LF will be replaced by CRLF the next tiuches it
+[master (root-commit) 84a5db5] dummy commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 dummy.txt
+Switched to a new branch 'second-branch'
+Switched to branch 'master'
+Successfully unset local username and email
+Successfully unset local GPG signing
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-branching/exercise (master)
+$ git branch branches
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-branching/exercise (master)
+$ git switch branches
+Switched to branch 'branches'
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-branching/exercise (branches
+$ git branch
+* branches
+  master
+  second-branch
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-branching/exercise (branches
+$ git status
+On branch branches
+nothing to commit, working tree clean
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-branching/exercise (branches
+$ touch file1.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-branching/exercise (branches)
+$ echo "Jahnavi" > file1.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-branching/exercise (branches)
+$ cat file1.txt
+Jahnavi
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-branching/exercise (branches)
+$ git add -a
+error: unknown switch `a'
+usage: git add [<options>] [--] <pathspec>...
+
+    -n, --dry-run         dry run
+    -v, --verbose         be verbose
+
+    -i, --interactive     interactive picking
+    -p, --patch           select hunks interactively
+    -e, --edit            edit current diff and apply
+    -f, --force           allow adding otherwise ignored files
+    -u, --update          update tracked files
+    --renormalize         renormalize EOL of tracked files (implies -u)
+    -N, --intent-to-add   record only the fact that the path will be added later
+    -A, --all             add changes from all tracked and untracked files
+    --ignore-removal      ignore paths removed in the working tree (same as --no-all)
+    --refresh             don't add, only refresh the index
+    --ignore-errors       just skip files which cannot be added because of errors
+    --ignore-missing      check if - even missing - files are ignored in dry run
+    --sparse              allow updating entries outside of the sparse-checkout cone
+    --chmod (+|-)x        override the executable bit of the listed files
+    --pathspec-from-file <file>
+                          read pathspec from file
+    --pathspec-file-nul   with --pathspec-from-file, pathspec elements are separated with NUL character
+
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-branching/exercise (branches)
+$ git add file1.txt
+warning: in the working copy of 'file1.txt', LF will be replaced by CRLF the next time Git touches it
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-branching/exercise (branches)
+$ git commit -m "Committed"
+[branches 10478e0] Committed
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file1.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-branching/exercise (branches)
+$ git log --oneline --graph
+* 10478e0 (HEAD -> branches) Committed
+* 84a5db5 (second-branch, master) dummy commit
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-branching/exercise (branches)
+$ git switch master
+Switched to branch 'master'
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-branching/exercise (master)
+$ git log --oneline --graph
+* 84a5db5 (HEAD -> master, second-branch) dummy commit
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-branching/exercise (master)
+$ touch file2.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-branching/exercise (master)
+$ echo "hello branch" > file2.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-branching/exercise (master)
+$ git commit -m "New file"
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        file2.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-branching/exercise (master)
+$ git add file2.txt
+warning: in the working copy of 'file2.txt', LF will be replaced by CRLF the next time Git touches it
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-branching/exercise (master)
+$ git commit -m "File new"
+[master 0a61535] File new
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file2.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-branching/exercise (master)
+$ git log --oneline --graph --all
+* 0a61535 (HEAD -> master) File new
+| * 10478e0 (branches) Committed
+|/
+* 84a5db5 (second-branch) dummy commit
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-branching/exercise (master)
+$ git branch
+  branches
+* master
+  second-branch
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-branching/exercise (master)
+$ git switch branches
+Switched to branch 'branches'
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-branching/exercise (branches)
+$ ls -a
+./  ../  .git/  dummy.txt  file1.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-branching/exercise (branches)
+$ get diff branches master
+bash: get: command not found
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-branching/exercise (branches)
+$ git diff branches master
+diff --git a/file1.txt b/file1.txt
+deleted file mode 100644
+index b18d38e..0000000
+--- a/file1.txt
++++ /dev/null
+@@ -1 +0,0 @@
+-Jahnavi
+diff --git a/file2.txt b/file2.txt
+new file mode 100644
+index 0000000..e64a78a
+--- /dev/null
++++ b/file2.txt
+@@ -0,0 +1 @@
++hello branch
+--------------------------------------------------------------------------------------------------------------------------------------
+FF-MERGE
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2 (master)
+$ cd ff-merge
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge (master)
+$ source setuo.sh
+bash: setuo.sh: No such file or directory
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge (master)
+$ source setup.sh
+Initialized empty Git repository in C:/Users/JahnaviP/Desktop/dummy2/ff-merge/exercise/.git/
+[master (root-commit) 3e7250a] Add file greeting.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 greeting.txt
+warning: in the working copy of 'greeting.txt', LF will be replaced by CRLF the next time Git touches it
+[master 1e8de71] Add content to greeting.txt
+ 1 file changed, 1 insertion(+)
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (master)
+$ cat greeting.txt
+hello
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (master)
+$ git branch feature/uppercase
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (master)
+$ git switch feature/uppercase
+Switched to branch 'feature/uppercase'
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (feature/uppercase)
+$ git status
+On branch feature/uppercase
+nothing to commit, working tree clean
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (feature/uppercase)
+$ echo "HELLO" > greeting.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (feature/uppercase)
+$ git add greeting.txt
+warning: in the working copy of 'greeting.txt', LF will be replaced by CRLF the next time Git touches it
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (feature/uppercase)
+$ git diff --staged
+diff --git a/greeting.txt b/greeting.txt
+index ce01362..e427984 100644
+--- a/greeting.txt
++++ b/greeting.txt
+@@ -1 +1 @@
+-hello
++HELLO
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (feature/uppercase)
+$ git commit -m "Staged file"
+[feature/uppercase a9cc546] Staged file
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (feature/uppercase)
+$ git status
+On branch feature/uppercase
+nothing to commit, working tree clean
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (feature/uppercase)
+$ git log
+commit a9cc54618e99d63420907d3c0fc4b95043859619 (HEAD -> feature/uppercase)
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Wed Nov 9 13:58:10 2022 +0530
+
+    Staged file
+
+commit 1e8de718ed3aea060967fbe9340120d717cb6908 (master)
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Wed Nov 9 13:50:22 2022 +0530
+
+    Add content to greeting.txt
+
+commit 3e7250a2daf27c58cc77797f63a1383af14f5098
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Wed Nov 9 13:50:22 2022 +0530
+
+    Add file greeting.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (feature/uppercase)
+$ git branch
+* feature/uppercase
+  master
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (feature/uppercase)
+$ git log --oneline --graph --all
+* a9cc546 (HEAD -> feature/uppercase) Staged file
+* 1e8de71 (master) Add content to greeting.txt
+* 3e7250a Add file greeting.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (feature/uppercase)
+$ git switch master
+Switched to branch 'master'
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (master)
+$ cat
+greeting.txt
+greeting.txt
+
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (master)
+$ cat greeting.txt
+hello
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (master)
+$ git diff feature/uppercase master
+diff --git a/greeting.txt b/greeting.txt
+index e427984..ce01362 100644
+--- a/greeting.txt
++++ b/greeting.txt
+@@ -1 +1 @@
+-HELLO
++hello
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (master)
+$ git switch feature/uppercase
+Switched to branch 'feature/uppercase'
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (feature/uppercase)
+$ cat greeting.txt
+HELLO
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (feature/uppercase)
+$ git switch master
+Switched to branch 'master'
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (master)
+$ git merge feature/uppercase
+Updating 1e8de71..a9cc546
+Fast-forward
+ greeting.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (master)
+$ cat greeting.txt
+HELLO
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (master)
+$ git switch feature/uppercase
+Switched to branch 'feature/uppercase'
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (feature/uppercase)
+$ cat greeting.txt
+HELLO
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (feature/uppercase)
+$ git switch master
+Switched to branch 'master'
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (master)
+$ cat greeting.txt
+HELLO
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/ff-merge/exercise (master)
+$ git branch -d feature/uppercase
+Deleted branch feature/uppercase (was a9cc546).
+
+--------------------------------------------------------------------------------------------------------------------------------------

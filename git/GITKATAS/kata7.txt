@@ -1,0 +1,121 @@
+MERGE-MERGESORT
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2 (master)
+$ cd merge-mergesort
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-mergesort (master)
+$ source setup.sh
+Initialized empty Git repository in C:/Users/JahnaviP/Desktop/dummy2/merge-mergesort/exercise/.git/
+warning: in the working copy of 'mergesort.py', LF will be replaced by CRLF the next time Git touches it
+[master (root-commit) 57963ee] Fake it till you make it - Faking mergesort using python .sort() method
+ 1 file changed, 5 insertions(+)
+ create mode 100644 mergesort.py
+Switched to a new branch 'Mergesort-Impl'
+warning: in the working copy of 'mergesort.py', LF will be replaced by CRLF the next time Git touches it
+[Mergesort-Impl c0657e9] Mergesort implemented on feature branch
+ 1 file changed, 43 insertions(+), 3 deletions(-)
+Switched to branch 'master'
+warning: in the working copy of 'mergesort.py', LF will be replaced by CRLF the next time Git touches it
+[master 5e98c91] Mergesort implemented on master
+ 1 file changed, 43 insertions(+), 3 deletions(-)
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-mergesort/exercise (master)
+$ git branch
+  Mergesort-Impl
+* master
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-mergesort/exercise (master)
+$ git merge Mergesort-Impl
+Auto-merging mergesort.py
+CONFLICT (content): Merge conflict in mergesort.py
+Automatic merge failed; fix conflicts and then commit the result.
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-mergesort/exercise (master|MERGING)
+$ ls
+mergesort.py
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-mergesort/exercise (master|MERGING)
+$ git add mergesort.py
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-mergesort/exercise (master|MERGING)
+$ git commit -m "python"
+[master 9be6135] python
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-mergesort/exercise (master)
+$ git merge Mergesort-Impl
+Already up to date.
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-mergesort/exercise (master)
+$ cat mergesort.py
+from heapq import merge
+
+def merge_sort2(m):
+    """Sort list, using two part merge sort"""
+    if len(m) <= 1:
+        return m
+
+    # Determine the pivot point
+    middle = len(m) // 2
+
+    # Split the list at the pivot
+<<<<<<< HEAD
+    left = m[:middle]
+    right = m[middle:]
+=======
+    right = m[middle:]
+    left = m[:middle]
+>>>>>>> Mergesort-Impl
+
+    # Sort recursively
+    right = merge_sort2(right)
+    left = merge_sort2(left)
+
+    # Merge and return
+    return list(merge(right, left))
+
+def merge_sort4(m):
+    """Sort list, using four part merge sort"""
+    if len(m) <= 4:
+        return sorted(m)
+
+    # Determine the pivot point
+    middle = len(m) // 2
+    leftMiddle = middle // 2
+    rightMiddle = middle + leftMiddle
+
+    # Split the list at the pivots
+    first = m[:leftMiddle]
+    second = m[leftMiddle:middle]
+    third = m[middle:rightMiddle]
+<<<<<<< HEAD
+    last = m[rightMiddle:]
+=======
+    fourth = m[rightMiddle:]
+>>>>>>> Mergesort-Impl
+
+    # Sort recursively
+    first = merge_sort4(first)
+    second = merge_sort4(second)
+    third = merge_sort4(third)
+<<<<<<< HEAD
+    last = merge_sort4(last)
+
+    # Merge and return
+    return list(merge(first, second, third, last))
+=======
+    fourth = merge_sort4(fourth)
+
+    # Merge and return
+    return list(merge(first,second, third, fourth))
+>>>>>>> Mergesort-Impl
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-mergesort/exercise (master)
+$ git log --oneline --graph
+*   9be6135 (HEAD -> master) python
+|\
+| * c0657e9 (Mergesort-Impl) Mergesort implemented on feature branch
+* | 5e98c91 Mergesort implemented on master
+|/
+* 57963ee Fake it till you make it - Faking mergesort using python .sort() method
+
+--------------------------------------------------------------------------------------------------------------------------------------

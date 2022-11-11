@@ -1,0 +1,136 @@
+BASIC REVERT
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2 (master)
+$ cd basic-revert
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-revert (master)
+$ source setup.sh
+Initialized empty Git repository in C:/Users/JahnaviP/Desktop/dummy2/basic-revert/exercise/.git/
+Successfully configured local username and email
+Successfully disable local GPG signing
+[master (root-commit) 7a50408] Add file greeting.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 greeting.txt
+warning: in the working copy of 'credentials.txt', LF will be replaced by CRLF the next time Git touches it
+[master 0f0a4e3] Add credentials to repository
+ 1 file changed, 1 insertion(+)
+ create mode 100644 credentials.txt
+warning: in the working copy of 'greeting.txt', LF will be replaced by CRLF the next time Git touches it
+[master acd5ed0] Add content to greeting.txt
+ 1 file changed, 1 insertion(+)
+warning: in the working copy of 'greeting.txt', LF will be replaced by CRLF the next time Git touches it
+[master 4159b62] Overwrite greeting.txt
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Successfully unset local username and email
+Successfully unset local GPG signing
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-revert/exercise (master)
+$ git log --oneline
+4159b62 (HEAD -> master) Overwrite greeting.txt
+acd5ed0 Add content to greeting.txt
+0f0a4e3 Add credentials to repository
+7a50408 Add file greeting.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-revert/exercise (master)
+$ cat greeting.txt
+This should have been appended to the original content, rather than overwriting it.
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-revert/exercise (master)
+$ git revert greeting.txt
+fatal: bad revision 'greeting.txt'
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-revert/exercise (master)
+$ git revert
+usage: git revert [<options>] <commit-ish>...
+   or: git revert <subcommand>
+
+    --quit                end revert or cherry-pick sequence
+    --continue            resume revert or cherry-pick sequence
+    --abort               cancel revert or cherry-pick sequence
+    --skip                skip current commit and continue
+    --cleanup <mode>      how to strip spaces and #comments from message
+    -n, --no-commit       don't automatically commit
+    -e, --edit            edit the commit message
+    -s, --signoff         add a Signed-off-by trailer
+    -m, --mainline <parent-number>
+                          select mainline parent
+    --rerere-autoupdate   update the index with reused conflict resolution if possible
+    --strategy <strategy>
+                          merge strategy
+    -X, --strategy-option <option>
+                          option for merge strategy
+    -S, --gpg-sign[=<key-id>]
+                          GPG sign commit
+    --reference           use the 'reference' format to refer to commits
+
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-revert/exercise (master)
+$ git log --onelin
+fatal: unrecognized argument: --onelin
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-revert/exercise (master)
+$ git log --oneline
+4159b62 (HEAD -> master) Overwrite greeting.txt
+acd5ed0 Add content to greeting.txt
+0f0a4e3 Add credentials to repository
+7a50408 Add file greeting.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-revert/exercise (master)
+$ git log
+commit 4159b62dfdacf495099e4b9baf58026658cc798e (HEAD -> master)
+Author: git-katas trainer bot <git-katas@example.com>
+Date:   Wed Nov 9 16:26:20 2022 +0530
+
+    Overwrite greeting.txt
+
+commit acd5ed0f8cc062e89d923094446be1e2179cca85
+Author: git-katas trainer bot <git-katas@example.com>
+Date:   Wed Nov 9 16:26:20 2022 +0530
+
+    Add content to greeting.txt
+
+commit 0f0a4e317b20f04accb616efd9fb8d57405022ea
+Author: git-katas trainer bot <git-katas@example.com>
+Date:   Wed Nov 9 16:26:19 2022 +0530
+
+    Add credentials to repository
+
+commit 7a50408221074f316d83d2732cf43648b45f71c4
+Author: git-katas trainer bot <git-katas@example.com>
+Date:   Wed Nov 9 16:26:19 2022 +0530
+
+    Add file greeting.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-revert/exercise (master)
+$ git revert 4159b62dfdacf495099e4b9baf58026658cc798e
+[master efcacee] Revert "Overwrite greeting.txt"
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-revert/exercise (master)
+$ git log
+commit efcaceeda57dd9fb9ce4602166aceb303ef970c3 (HEAD -> master)
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Wed Nov 9 16:37:01 2022 +0530
+
+    Revert "Overwrite greeting.txt"
+
+    This reverts commit 4159b62dfdacf495099e4b9baf58026658cc798e.
+
+    This is reverting the chnages
+
+commit 4159b62dfdacf495099e4b9baf58026658cc798e
+Author: git-katas trainer bot <git-katas@example.com>
+Date:   Wed Nov 9 16:26:20 2022 +0530
+
+    Overwrite greeting.txt
+
+commit acd5ed0f8cc062e89d923094446be1e2179cca85
+Author: git-katas trainer bot <git-katas@example.com>
+Date:   Wed Nov 9 16:26:20 2022 +0530
+
+    Add content to greeting.txt
+
+commit 0f0a4e317b20f04accb616efd9fb8d57405022ea
+Author: git-katas trainer bot git-katas@example.com
+
+--------------------------------------------------------------------------------------------------------------------------------------

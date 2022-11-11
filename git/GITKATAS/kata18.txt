@@ -1,0 +1,545 @@
+SUBMODULES
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop (main)
+$ cd dummy2
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2 (master)
+$ cd submodules
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules (master)
+$ source setup.sh
+Initialized empty Git repository in C:/Users/JahnaviP/Desktop/dummy2/submodules/exercise/remote/
+Cloning into 'component'...
+warning: You appear to have cloned an empty repository.
+done.
+[master (root-commit) 463a910] Touch component header
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 component.h
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 235 bytes | 47.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To C:/Users/JahnaviP/Desktop/dummy2/submodules/exercise/remote
+ * [new branch]      master -> master
+Initialized empty Git repository in C:/Users/JahnaviP/Desktop/dummy2/submodules/exercise/product/.git/
+[master (root-commit) 4029494] Touch product header
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 product.h
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise (master)
+$ ls
+component/  product/  remote/
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise (master)
+$ git config --global protocol.file.allow always
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise (master)
+$ cd product
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product (master)
+$ git submodule add ../remote include
+Cloning into 'C:/Users/JahnaviP/Desktop/dummy2/submodules/exercise/product/include'...
+done.
+warning: in the working copy of '.gitmodules', LF will be replaced by CRLF the next time Git touches it
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product (master)
+$ ls
+include/  product.h
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product (master)
+$ git statuss
+git: 'statuss' is not a git command. See 'git --help'.
+
+The most similar command is
+        status
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   .gitmodules
+        new file:   include
+
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product (master)
+$ cd include
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product/include (master)
+$ ls
+component.h
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product/include (master)
+$ cd ..
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product (master)
+$ git diff --staged
+diff --git a/.gitmodules b/.gitmodules
+new file mode 100644
+index 0000000..79d5c92
+--- /dev/null
++++ b/.gitmodules
+@@ -0,0 +1,3 @@
++[submodule "include"]
++       path = include
++       url = ../remote
+diff --git a/include b/include
+new file mode 160000
+index 0000000..463a910
+--- /dev/null
++++ b/include
+@@ -0,0 +1 @@
++Subproject commit 463a910c8a1af09a47b95ec1afc3b922c7999275
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product (master)
+$ git add .
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product (master)
+$ git commit -m "Submodule committed"
+[master b298910] Submodule committed
+ 2 files changed, 4 insertions(+)
+ create mode 100644 .gitmodules
+ create mode 160000 include
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product (master)
+$ cd component
+bash: cd: component: No such file or directory
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product (master)
+$ cd ..
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise (master)
+$ cd component
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/component (master)
+$ ls
+component.h
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/component (master)
+$ touch file.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/component (master)
+$ git add .
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/component (master)
+$ git commit -m "Committed component"
+[master 831125c] Committed component
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/component (master)
+$ git push origin remote
+error: src refspec remote does not match any
+error: failed to push some refs to 'C:/Users/JahnaviP/Desktop/dummy2/submodules/exercise/remote'
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/component (master)
+$ git push remote
+fatal: 'remote' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/component (master)
+$ git push .
+Everything up-to-date
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/component (master)
+$ git push
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 264 bytes | 264.00 KiB/s, done.
+Total 2 (delta 0), reused 0 (delta 0), pack-reused 0
+To C:/Users/JahnaviP/Desktop/dummy2/submodules/exercise/remote
+   463a910..831125c  master -> master
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/component (master)
+$ cd ..
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise (master)
+$ cd product
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product (master)
+$ git submodule foeach 'git status'
+usage: git submodule [--quiet] [--cached]
+   or: git submodule [--quiet] add [-b <branch>] [-f|--force] [--name <name>] [--reference <repository>] [--] <repository> [<path>]
+   or: git submodule [--quiet] status [--cached] [--recursive] [--] [<path>...]
+   or: git submodule [--quiet] init [--] [<path>...]
+   or: git submodule [--quiet] deinit [-f|--force] (--all| [--] <path>...)
+   or: git submodule [--quiet] update [--init [--filter=<filter-spec>]] [--remote] [-N|--no-fetch] [-f|--force] [--checkout|--merge|--rebase] [--[no-]recommend-shallow] [--reference <repository>] [--recursive] [--[no-]single-branch] [--] [<path>...]
+   or: git submodule [--quiet] set-branch (--default|--branch <branch>) [--] <path>
+   or: git submodule [--quiet] set-url [--] <path> <newurl>
+   or: git submodule [--quiet] summary [--cached|--files] [--summary-limit <n>] [commit] [--] [<path>...]
+   or: git submodule [--quiet] foreach [--recursive] <command>
+   or: git submodule [--quiet] sync [--recursive] [--] [<path>...]
+   or: git submodule [--quiet] absorbgitdirs [--] [<path>...]
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product (master)
+$ cd include
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product/include (master)
+$ git pull
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 2 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (2/2), 244 bytes | 2.00 KiB/s, done.
+From C:/Users/JahnaviP/Desktop/dummy2/submodules/exercise/remote
+   463a910..831125c  master     -> origin/master
+Updating 463a910..831125c
+Fast-forward
+ file.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product/include (master)
+$ ls
+component.h  file.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product/include (master)
+$ cd ,,
+bash: cd: ,,: No such file or directory
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product/include (master)
+$ cd ..
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   include (new commits)
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product (master)
+$ git diff
+diff --git a/include b/include
+index 463a910..831125c 160000
+--- a/include
++++ b/include
+@@ -1 +1 @@
+-Subproject commit 463a910c8a1af09a47b95ec1afc3b922c7999275
++Subproject commit 831125c92a412203ce6ab03767babacd18a6c1ec
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product (master)
+$ cd include
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product/include (master)
+$ ls
+component.h  file.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product/include (master)
+$ echo "Hello there" > file.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product/include (master)
+$ git push origin
+Everything up-to-date
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product/include (master)
+$ git push
+Everything up-to-date
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product/include (master)
+$ git add .
+warning: in the working copy of 'file.txt', LF will be replaced by CRLF the next time Git touches it
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product/include (master)
+$ git commit -m "Committed"
+[master 1ee2685] Committed
+ 1 file changed, 1 insertion(+)
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product/include (master)
+$ git push origin
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 296 bytes | 98.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To C:/Users/JahnaviP/Desktop/dummy2/submodules/exercise/remote
+   831125c..1ee2685  master -> master
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product/include (master)
+$ cd ..
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product (master)
+$ ls
+include/  product.h
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product (master)
+$ mkdir exercise
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product (master)
+$ cd exercise
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product/exercise (master)
+$ git clone product product_alpha
+fatal: repository 'product' does not exist
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product/exercise (master)
+$ cd ..
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product (master)
+$ cd include
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product/include (master)
+$ cd ..
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product (master)
+$ cd ..
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise (master)
+$ git clone product product_alpha
+Cloning into 'product_alpha'...
+done.
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise (master)
+$ ls
+component/  product/  product_alpha/  remote/
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise (master)
+$ cd product_alpha
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product_alpha (master)
+$ ls
+include/  product.h
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product_alpha (master)
+$ git log --oneline
+b298910 (HEAD -> master, origin/master, origin/HEAD) Submodule committed
+4029494 Touch product header
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product_alpha (master)
+$ cd include
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product_alpha/include (master)
+$ ls
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product_alpha/include (master)
+$ git submodule init
+Submodule 'include' (C:/Users/JahnaviP/Desktop/dummy2/submodules/exercise/remote) registered for path './'
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product_alpha/include (master)
+$ ls
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product_alpha/include (master)
+$ cd ..
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product_alpha (master)
+$ git submodule init
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product_alpha (master)
+$ ls
+include/  product.h
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product_alpha (master)
+$ cd include
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product_alpha/include (master)
+$ ls
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product_alpha/include (master)
+$ cd ..
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product_alpha (master)
+$ git submodule update
+Cloning into 'C:/Users/JahnaviP/Desktop/dummy2/submodules/exercise/product_alpha/include'...
+done.
+Submodule path 'include': checked out '463a910c8a1af09a47b95ec1afc3b922c7999275'
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product_alpha (master)
+$ cd include
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product_alpha/include ((463a910...))
+$ ls
+component.h
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product_alpha/include ((463a910...))
+$ cd ..
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product_alpha (master)
+$ cd include
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product_alpha/include ((463a910...))
+$ git submodule update --init
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product_alpha/include ((463a910...))
+$ ls
+component.h
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product_alpha/include ((463a910...))
+$ cd ..
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product_alpha (master)
+$ cd ..
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise (master)
+$ cd product
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product (master)
+$ ls
+exercise/  include/  product.h
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product (master)
+$ touch nw.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product (master)
+$ git add .
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product (master)
+$ git commit -m "New added"
+[master 47512b0] New added
+ 2 files changed, 1 insertion(+), 1 deletion(-)
+ create mode 100644 nw.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product (master)
+$ cd product_alpha
+bash: cd: product_alpha: No such file or directory
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product (master)
+$ ls
+exercise/  include/  nw.txt  product.h
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product (master)
+$ cd ..
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise (master)
+$ cd product_alpha
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product_alpha (master)
+$ git submodule update
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product_alpha (master)
+$ ls
+include/  product.h
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product_alpha (master)
+$ cd include
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product_alpha/include ((463a910...))
+$ ls
+component.h
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product_alpha/include ((463a910...))
+$ cd ..
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product_alpha (master)
+$ cd ..
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise (master)
+$ cd product
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product (master)
+$ git submodule update
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product (master)
+$ ls
+exercise/  include/  nw.txt  product.h
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product (master)
+$ cd include
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product/include (master)
+$ ls
+component.h  file.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product/include (master)
+$ cd ..
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product (master)
+$ git submodule status
+ 1ee26853fbf0780deaa6bbe9fce5a6dfa454c838 include (heads/master)
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product (master)
+$ cd ..
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise (master)
+$ cd component
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/component (master)
+$ git log
+commit 831125c92a412203ce6ab03767babacd18a6c1ec (HEAD -> master, origin/master)
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Fri Nov 11 15:56:20 2022 +0530
+
+    Committed component
+
+commit 463a910c8a1af09a47b95ec1afc3b922c7999275
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Fri Nov 11 15:48:53 2022 +0530
+
+    Touch component header
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/component (master)
+$ cd ..
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise (master)
+$ cd product
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product (master)
+$ git submodule update --remote
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product (master)
+$ cd include
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product/include (master)
+$ ls
+component.h  file.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product/include (master)
+$ cd ..
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product (master)
+$ git submodule status
+ 1ee26853fbf0780deaa6bbe9fce5a6dfa454c838 include (heads/master)
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/submodules/exercise/product (master)
+$ git log -p --submodule
+commit 47512b08a2b69f181512bfb6649a3fb9e3df77f6 (HEAD -> master)
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Fri Nov 11 16:39:25 2022 +0530
+
+    New added
+
+Submodule include 463a910..1ee2685:
+  > Committed
+  > Committed component
+diff --git a/nw.txt b/nw.txt
+new file mode 100644
+index 0000000..e69de29
+
+commit b29891043d8443b15233e84a5878029496e50cb6
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Fri Nov 11 15:54:32 2022 +0530
+
+    Submodule committed
+
+diff --git a/.gitmodules b/.gitmodules
+new file mode 100644
+index 0000000..79d5c92
+--- /dev/null
++++ b/.gitmodules
+@@ -0,0 +1,3 @@
++[submodule "include"]
++       path = include
++       url = ../remote
+Submodule include 0000000...463a910 (new submodule)
+
+commit 4029494de33422275ce2084abc423828bf65f6a9
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Fri Nov 11 15:48:55 2022 +0530
+
+    Touch product header
+
+diff --git a/product.h b/product.h
+new file mode 100644
+index 0000000..e69de29

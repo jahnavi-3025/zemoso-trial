@@ -1,0 +1,166 @@
+REBASE BRANCH
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2 (master)
+$ cd rebase-branch
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/rebase-branch (master)
+$ source setup.sh
+Initialized empty Git repository in C:/Users/JahnaviP/Desktop/dummy2/rebase-branch/exercise/.git/
+[master (root-commit) 2ea9df1] Add file greeting.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 greeting.txt
+warning: in the working copy of 'greeting.txt', LF will be replaced by CRLF the next time Git touches it
+[master b7fe1ef] Add content to greeting.txt
+ 1 file changed, 1 insertion(+)
+Switched to a new branch 'uppercase'
+warning: in the working copy of 'greeting.txt', LF will be replaced by CRLF the next time Git touches it
+[uppercase ced38d3] Change greeting to uppercase
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Switched to branch 'master'
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+[master 4a75487] Add readme
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/rebase-branch/exercise (master)
+$ git branch
+* master
+  uppercase
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/rebase-branch/exercise (master)
+$ git log
+commit 4a754876955b9623c816036b5c34c620e511c99d (HEAD -> master)
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Wed Nov 9 16:14:09 2022 +0530
+
+    Add readme
+
+commit b7fe1ef3fe1068f67817ad9416d28eefb8f644b1
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Wed Nov 9 16:14:08 2022 +0530
+
+    Add content to greeting.txt
+
+commit 2ea9df1c720b54e55f0cae6aae0f5b2552f218c7
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Wed Nov 9 16:14:08 2022 +0530
+
+    Add file greeting.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/rebase-branch/exercise (master)
+$ ls
+README.md  greeting.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/rebase-branch/exercise (master)
+$ git switch uppercase
+Switched to branch 'uppercase'
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/rebase-branch/exercise (uppercase)
+$ git log
+commit ced38d3fa555ddc2f9b4ac1b3c6211e57a5b29d6 (HEAD -> uppercase)
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Wed Nov 9 16:14:09 2022 +0530
+
+    Change greeting to uppercase
+
+commit b7fe1ef3fe1068f67817ad9416d28eefb8f644b1
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Wed Nov 9 16:14:08 2022 +0530
+
+    Add content to greeting.txt
+
+commit 2ea9df1c720b54e55f0cae6aae0f5b2552f218c7
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Wed Nov 9 16:14:08 2022 +0530
+
+    Add file greeting.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/rebase-branch/exercise (uppercase)
+$ git rebase master
+Successfully rebased and updated refs/heads/uppercase.
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/rebase-branch/exercise (uppercase)
+$ git switch master
+Switched to branch 'master'
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/rebase-branch/exercise (master)
+$ git merge uppercase
+Updating 4a75487..300eefd
+Fast-forward
+ greeting.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/rebase-branch/exercise (master)
+$ git log
+commit 300eefd9f03f5da93869e48a9d1cdde80af6ba66 (HEAD -> master, uppercase)
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Wed Nov 9 16:14:09 2022 +0530
+
+    Change greeting to uppercase
+
+commit 4a754876955b9623c816036b5c34c620e511c99d
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Wed Nov 9 16:14:09 2022 +0530
+
+    Add readme
+
+commit b7fe1ef3fe1068f67817ad9416d28eefb8f644b1
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Wed Nov 9 16:14:08 2022 +0530
+
+    Add content to greeting.txt
+
+commit 2ea9df1c720b54e55f0cae6aae0f5b2552f218c7
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Wed Nov 9 16:14:08 2022 +0530
+
+    Add file greeting.txt
+(END)
+commit 300eefd9f03f5da93869e48a9d1cdde80af6ba66 (HEAD -> master, uppercase)
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Wed Nov 9 16:14:09 2022 +0530
+
+    Change greeting to uppercase
+
+commit 4a754876955b9623c816036b5c34c620e511c99d
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Wed Nov 9 16:14:09 2022 +0530
+
+    Add readme
+
+commit b7fe1ef3fe1068f67817ad9416d28eefb8f644b1
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Wed Nov 9 16:14:08 2022 +0530
+
+    Add content to greeting.txt
+
+commit 2ea9df1c720b54e55f0cae6aae0f5b2552f218c7
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Wed Nov 9 16:14:08 2022 +0530
+
+    Add file greeting.txt
+(END)
+commit 300eefd9f03f5da93869e48a9d1cdde80af6ba66 (HEAD -> master, uppercase)
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Wed Nov 9 16:14:09 2022 +0530
+
+    Change greeting to uppercase
+
+commit 4a754876955b9623c816036b5c34c620e511c99d
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Wed Nov 9 16:14:09 2022 +0530
+
+    Add readme
+
+commit b7fe1ef3fe1068f67817ad9416d28eefb8f644b1
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Wed Nov 9 16:14:08 2022 +0530
+
+    Add content to greeting.txt
+
+commit 2ea9df1c720b54e55f0cae6aae0f5b2552f218c7
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Wed Nov 9 16:14:08 2022 +0530
+
+    Add file greeting.txt
+

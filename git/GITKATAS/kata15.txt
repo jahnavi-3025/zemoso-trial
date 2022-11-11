@@ -1,0 +1,155 @@
+ADVANCED-REBASE-INTERACTIVE
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2 (master)
+$ cd advanced-rebase-interactive
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/advanced-rebase-interactive (master)
+$ source setup.sh
+Initialized empty Git repository in C:/Users/JahnaviP/Desktop/dummy2/advanced-rebase-interactive/remote/
+Cloning into 'exercise'...
+warning: You appear to have cloned an empty repository.
+done.
+[master (root-commit) b05d59b] Initial commit
+Enumerating objects: 2, done.
+Counting objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 177 bytes | 88.00 KiB/s, done.
+Total 2 (delta 0), reused 0 (delta 0), pack-reused 0
+To C:/Users/JahnaviP/Desktop/dummy2/advanced-rebase-interactive/./remote
+ * [new branch]      master -> master
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+To C:/Users/JahnaviP/Desktop/dummy2/advanced-rebase-interactive/./remote
+ * [new tag]         v0.0 -> v0.0
+warning: in the working copy of 'hello.code', LF will be replaced by CRLF the next time Git touches it
+[master 7eb82c4] Helo Volrd feature
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello.code
+warning: in the working copy of 'hello.code', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'other.code', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'hello.code', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'other.code', LF will be replaced by CRLF the next time Git touches it
+[master aa55925] Finished HW feature
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+ create mode 100644 other.code
+warning: in the working copy of 'hello.code', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'other.code', LF will be replaced by CRLF the next time Git touches it
+[master 7943193] Really made the thingy done
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+warning: in the working copy of 'hello.code', LF will be replaced by CRLF the next time Git touches it
+[master f486d10] debugging
+ 1 file changed, 1 insertion(+)
+warning: in the working copy of 'private.secret', LF will be replaced by CRLF the next time Git touches it
+[master 197f1e5] important secret
+ 1 file changed, 1 insertion(+)
+ create mode 100644 private.secret
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+[master 917937e] Add doc - step 1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+[master 7701722] Add doc - step 2
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+[master 2fd09e5] Add doc - step 3
+ 1 file changed, 2 insertions(+)
+warning: in the working copy of 'hello.test', LF will be replaced by CRLF the next time Git touches it
+[master c57f97f] Test for feature hello world
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello.test
+warning: in the working copy of 'hello.test', LF will be replaced by CRLF the next time Git touches it
+[master 70572d2] I forgot a semicolon
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/advanced-rebase-interactive/exercise (master)
+$ git log
+commit 70572d2bb8fc0de49090c67ccf39d4a8427d9069 (HEAD -> master)
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Thu Nov 10 09:36:40 2022 +0530
+
+    I forgot a semicolon
+
+commit c57f97f62bb1b618016c4b69cdb0122a9dd543bc
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Thu Nov 10 09:36:40 2022 +0530
+
+    Test for feature hello world
+
+commit 2fd09e5bf938e069651acbb69629db82af1588c6
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Thu Nov 10 09:36:40 2022 +0530
+
+    Add doc - step 3
+
+commit 770172230d52165c0d36f86c3d04e15b824d1e9d
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Thu Nov 10 09:36:39 2022 +0530
+
+    Add doc - step 2
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/advanced-rebase-interactive/exercise (master)
+$ git log --oneline
+70572d2 (HEAD -> master) I forgot a semicolon
+c57f97f Test for feature hello world
+2fd09e5 Add doc - step 3
+7701722 Add doc - step 2
+917937e Add doc - step 1
+197f1e5 important secret
+f486d10 debugging
+7943193 Really made the thingy done
+aa55925 Finished HW feature
+7eb82c4 Helo Volrd feature
+b05d59b (tag: v0.0, origin/master) Initial commit
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/advanced-rebase-interactive/exercise (master)
+$ git rebase -i v0.0
+[detached HEAD 1fc61c7] Helo Wolrd feature
+ Date: Thu Nov 10 09:36:36 2022 +0530
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello.code
+[detached HEAD 834c124] important secret
+ Date: Thu Nov 10 09:36:38 2022 +0530
+ 2 files changed, 4 insertions(+)
+ create mode 100644 README.md
+ create mode 100644 private.secret
+Successfully rebased and updated refs/heads/master.
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/advanced-rebase-interactive/exercise (master)
+$ git log
+commit 01ef534e3059a5ce6036dca2145d493d79e29eae (HEAD -> master)
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Thu Nov 10 09:36:40 2022 +0530
+
+    I forgot a semicolon
+
+commit 0bfd3744e2bba57ded8af3f1d0c1a1196f92002d
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Thu Nov 10 09:36:40 2022 +0530
+
+    Test for feature hello world
+
+commit 834c1241cee3e45a8782774764566f1efabc4774
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Thu Nov 10 09:36:38 2022 +0530
+
+    important secret
+
+    Add doc - step 1
+
+    Add doc - step 2
+
+    Add doc - step 3
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/advanced-rebase-interactive/exercise (master)
+$ git log --oneline
+01ef534 (HEAD -> master) I forgot a semicolon
+0bfd374 Test for feature hello world
+834c124 important secret
+59f72c6 debugging
+e578b2e Really made the thingy done
+e522ac2 Finished HW feature
+1fc61c7 Helo Wolrd feature
+b05d59b (tag: v0.0, origin/master) Initial commit
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/advanced-rebase-interactive/exercise (master)
+$ cd ..
+
+--------------------------------------------------------------------------------------------------------------------------------------

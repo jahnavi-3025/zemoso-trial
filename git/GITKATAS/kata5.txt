@@ -1,0 +1,132 @@
+3-WAY-MERGE
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2 (master)
+$ ls
+3-way-merge/                  ignore/
+LICENSE.txt                   images/
+Overview.md                   investigation/
+README.md                     lfs/
+SHELL-BASICS.md               master-based-workflow/
+advanced-rebase-interactive/  merge-conflict/
+alias/                        merge-driver/
+amend/                        merge-mergesort/
+bad-commit/                   objects/
+basic-branching/              pre-push/
+basic-cherry-pick/            rebase-branch/
+basic-cleaning/               rebase-exec/
+basic-commits/                rebase-interactive-autosquash/
+basic-revert/                 reorder-the-history/
+basic-staging/                reset/
+basic-stashing/               restore/
+bisect/                       reverted-merge/
+change-author/                save-my-commit/
+commit-on-wrong-branch/       squashing/
+commit-on-wrong-branch-2/     submodules/
+configure-git/                subtree/
+detached-head/                test-all.sh*
+docs/                         test.ps1
+ff-merge/                     test.sh*
+git-attributes/               testzsh.sh*
+git-tag/                      utils/
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2 (master)
+$ cd 3-way-merge
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/3-way-merge (master)
+$ git branch
+* master
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/3-way-merge (master)
+$ source setup.sh
+Initialized empty Git repository in C:/Users/JahnaviP/Desktop/dummy2/3-way-merge/exercise/.git/
+[master (root-commit) d86694a] Add file greeting.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 greeting.txt
+warning: in the working copy of 'greeting.txt', LF will be replaced by CRLF the next time Git touches it
+[master d379cd4] Add content to greeting.txt
+ 1 file changed, 1 insertion(+)
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/3-way-merge/exercise (master)
+$ git branch greeting
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/3-way-merge/exercise (master)
+$ git switch greeting
+Switched to branch 'greeting'
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/3-way-merge/exercise (greeting)
+$ echo "Happy Borthday" > greeting.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/3-way-merge/exercise (greeting)
+$ git add greeting.txt
+warning: in the working copy of 'greeting.txt', LF will be replaced by CRLF the next time Git touches it
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/3-way-merge/exercise (greeting)
+$ git commit -m
+error: switch `m' requires a value
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/3-way-merge/exercise (greeting)
+$ git commit -m "Greeting"
+[greeting 9a4d9ba] Greeting
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/3-way-merge/exercise (greeting)
+$ git switch master
+Switched to branch 'master'
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/3-way-merge/exercise (master)
+$ touch README.md
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/3-way-merge/exercise (master)
+$ echo "This is a 3-way-merge file" > README.md
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/3-way-merge/exercise (master)
+$ git add README.md
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/3-way-merge/exercise (master)
+$ git commit -m "readme.md"
+[master 1ae8b18] readme.md
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/3-way-merge/exercise (master)
+$ git log --oneline --graph --all
+* 1ae8b18 (HEAD -> master) readme.md
+| * 9a4d9ba (greeting) Greeting
+|/
+* d379cd4 Add content to greeting.txt
+* d86694a Add file greeting.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/3-way-merge/exercise (master)
+$ git diff greeting master
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..84477c9
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1 @@
++This is a 3-way-merge file
+diff --git a/greeting.txt b/greeting.txt
+index b8b1ad5..ce01362 100644
+--- a/greeting.txt
++++ b/greeting.txt
+@@ -1 +1 @@
+-Happy Borthday
++hello
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/3-way-merge/exercise (master)
+$ git merge greeting
+Merge made by the 'ort' strategy.
+ greeting.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/3-way-merge/exercise (master)
+$ git log --oneline --graph --all
+*   800f95c (HEAD -> master) Merge branch 'greeting' This is important to see the changes between to branches.
+|\
+| * 9a4d9ba (greeting) Greeting
+* | 1ae8b18 readme.md
+|/
+* d379cd4 Add content to greeting.txt
+* d86694a Add file greeting.txt
+--------------------------------------------------------------------------------------------------------------------------------------

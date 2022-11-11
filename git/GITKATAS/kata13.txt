@@ -1,0 +1,156 @@
+REORDER THE HISTORY
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2 (master)
+$ cd reorder-the-history
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/reorder-the-history (master)
+$ source setup.sh
+Initialized empty Git repository in C:/Users/JahnaviP/Desktop/dummy2/reorder-the-history/remote/
+Cloning into 'exercise'...
+warning: You appear to have cloned an empty repository.
+done.
+warning: in the working copy of 'foo.txt', LF will be replaced by CRLF the next time Git touches it
+[master (root-commit) 5b7d1c5] Initial commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 foo.txt
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 231 bytes | 231.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To C:/Users/JahnaviP/Desktop/dummy2/reorder-the-history/./remote
+ * [new branch]      master -> master
+Enumerating objects: 1, done.
+Counting objects: 100% (1/1), done.
+Writing objects: 100% (1/1), 174 bytes | 174.00 KiB/s, done.
+Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+To C:/Users/JahnaviP/Desktop/dummy2/reorder-the-history/./remote
+ * [new tag]         START -> START
+warning: in the working copy of 'file1', LF will be replaced by CRLF the next time Git touches it
+[master a5bd06b] file1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file1
+warning: in the working copy of 'file9', LF will be replaced by CRLF the next time Git touches it
+[master 9412e95] file9
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file9
+warning: in the working copy of 'file8', LF will be replaced by CRLF the next time Git touches it
+[master e44e24b] file8
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file8
+warning: in the working copy of 'file3', LF will be replaced by CRLF the next time Git touches it
+[master 1655fbb] file3
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file3
+warning: in the working copy of 'file4', LF will be replaced by CRLF the next time Git touches it
+[master e7416eb] file4
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file4
+warning: in the working copy of 'file5', LF will be replaced by CRLF the next time Git touches it
+[master b9d6825] file5
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file5
+warning: in the working copy of 'file2', LF will be replaced by CRLF the next time Git touches it
+[master 94c1364] file2
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file2
+warning: in the working copy of 'file6', LF will be replaced by CRLF the next time Git touches it
+[master dd29232] file6
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file6
+warning: in the working copy of 'file7', LF will be replaced by CRLF the next time Git touches it
+[master c130d04] file7
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file7
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/reorder-the-history/exercise (master)
+$ git log --oneline
+c130d04 (HEAD -> master) file7
+dd29232 file6
+94c1364 file2
+b9d6825 file5
+e7416eb file4
+1655fbb file3
+e44e24b file8
+9412e95 file9
+a5bd06b file1
+5b7d1c5 (tag: START, origin/master) Initial commit
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/reorder-the-history/exercise (master)
+$ git rebase -i HEAD~9
+Successfully rebased and updated refs/heads/master.
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/reorder-the-history/exercise (master)
+$ git log --oneline
+961013c (HEAD -> master) file9
+e40e5f4 file8
+d2ffd75 file7
+93688f0 file6
+af1d32e file5
+91a079a file4
+31d9e1e file3
+b5f0ca5 file2
+a5bd06b file1
+5b7d1c5 (tag: START, origin/master) Initial commit
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/reorder-the-history/exercise (master)
+$ git log
+commit 961013c7cb2ce23eb811941c8718eb5dfe4e8971 (HEAD -> master)
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Thu Nov 10 09:47:46 2022 +0530
+
+    file9
+
+commit e40e5f4dd19432f23d741f4fdb6f130e06593d47
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Thu Nov 10 09:47:46 2022 +0530
+
+    file8
+
+commit d2ffd7590b238dfde0cf1f7fa64024b20e723701
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Thu Nov 10 09:47:49 2022 +0530
+
+    file7
+
+commit 93688f070a0b4759e4039055a83bccbdc1ada052
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Thu Nov 10 09:47:49 2022 +0530
+
+    file6
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/reorder-the-history/exercise (master)
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 9 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/reorder-the-history/exercise (master)
+$ ls
+file1  file2  file3  file4  file5  file6  file7  file8  file9  foo.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/reorder-the-history/exercise (master)
+$ git reflog
+961013c (HEAD -> master) HEAD@{0}: rebase (finish): returning to refs/heads/master
+961013c (HEAD -> master) HEAD@{1}: rebase (pick): file9
+e40e5f4 HEAD@{2}: rebase (pick): file8
+d2ffd75 HEAD@{3}: rebase (pick): file7
+93688f0 HEAD@{4}: rebase (pick): file6
+af1d32e HEAD@{5}: rebase (pick): file5
+91a079a HEAD@{6}: rebase (pick): file4
+31d9e1e HEAD@{7}: rebase (pick): file3
+b5f0ca5 HEAD@{8}: rebase (pick): file2
+a5bd06b HEAD@{9}: rebase (start): checkout HEAD~9
+c130d04 HEAD@{10}: commit: file7
+dd29232 HEAD@{11}: commit: file6
+94c1364 HEAD@{12}: commit: file2
+b9d6825 HEAD@{13}: commit: file5
+e7416eb HEAD@{14}: commit: file4
+1655fbb HEAD@{15}: commit: file3
+e44e24b HEAD@{16}: commit: file8
+9412e95 HEAD@{17}: commit: file9
+a5bd06b HEAD@{18}: commit: file1
+5b7d1c5 (tag: START, origin/master) HEAD@{19}: commit (initial): Initial commit
+
+--------------------------------------------------------------------------------------------------------------------------------------

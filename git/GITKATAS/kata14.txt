@@ -1,0 +1,120 @@
+SQUASHING
+CD 
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2 (master)
+$ cd squashing
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/squashing (master)
+$ ls
+README.md  exercise/  setup.ps1  setup.sh*
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/squashing (master)
+$ source setup.sh
+Initialized empty Git repository in C:/Users/JahnaviP/Desktop/dummy2/squashing/exercise/.git/
+[master (root-commit) 1261983] initial file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 alsoafile.txt
+warning: in the working copy of 'file.txt', LF will be replaced by CRLF the next time Git touches it
+[master 80b9c5d] Add relevant fact
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file.txt
+warning: in the working copy of 'file.txt', LF will be replaced by CRLF the next time Git touches it
+[master b2b0485] Add more relevancy
+ 1 file changed, 1 insertion(+)
+warning: in the working copy of 'file.txt', LF will be replaced by CRLF the next time Git touches it
+[master 19be04f] most relevant!
+ 1 file changed, 1 insertion(+)
+warning: in the working copy of 'file.txt', LF will be replaced by CRLF the next time Git touches it
+[master 443dda0] add prime directive
+ 1 file changed, 1 insertion(+)
+warning: in the working copy of 'file.txt', LF will be replaced by CRLF the next time Git touches it
+[master b8c1193] add the word!
+ 1 file changed, 1 insertion(+)
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/squashing/exercise (master)
+$ ls
+alsoafile.txt  file.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/squashing/exercise (master)
+$ cat alsoafile.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/squashing/exercise (master)
+$ cat file.txt
+This is a relevant fact\n
+This is also relevant\n
+Perhaps this is the most relevant\n
+This is the prime directive\n
+NEVER change public history
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/squashing/exercise (master)
+$ cat alsoafile.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/squashing/exercise (master)
+$ git log
+commit b8c119308a282e5b29bacbdd31e72adeddf060f4 (HEAD -> master)
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Wed Nov 9 19:46:52 2022 +0530
+
+    add the word!
+
+commit 443dda0a490f43e98c8d102e4a745603b9f4c42e
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Wed Nov 9 19:46:51 2022 +0530
+
+    add prime directive
+
+commit 19be04f8198806cb7c64554afdacd71a3d55bf76
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Wed Nov 9 19:46:51 2022 +0530
+
+    most relevant!
+
+commit b2b048599478a7cec18d72e5372f193ea8900419
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Wed Nov 9 19:46:51 2022 +0530
+
+    Add more relevancy
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/squashing/exercise (master)
+$ git reflog
+b8c1193 (HEAD -> master) HEAD@{0}: commit: add the word!
+443dda0 HEAD@{1}: commit: add prime directive
+19be04f HEAD@{2}: commit: most relevant!
+b2b0485 HEAD@{3}: commit: Add more relevancy
+80b9c5d HEAD@{4}: commit: Add relevant fact
+1261983 HEAD@{5}: commit (initial): initial file
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/squashing/exercise (master)
+$ git rebase -i 80b9c5d
+[detached HEAD ea64f93] Add more relevancy
+ Date: Wed Nov 9 19:46:51 2022 +0530
+ 1 file changed, 4 insertions(+)
+Successfully rebased and updated refs/heads/master.
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/squashing/exercise (master)
+$ git log
+commit ea64f93c73ac053b6d3d13c56093d5023bdb5b80 (HEAD -> master)
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Wed Nov 9 19:46:51 2022 +0530
+
+    Add more relevancy
+
+    most relevant!
+
+    add prime directive
+
+    add the word!
+
+    Squashing done
+
+commit 80b9c5dc83790f303d4dc735b13666a728cc0db8
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Wed Nov 9 19:46:50 2022 +0530
+
+    Add relevant fact
+
+commit 12619832587c3fca48013195782f9a8756e282a1
+Author: Jahnavi Peddineni jahnavi.peddineni@zemosolabs.com
+
+Date:   Wed Nov 9 19:46:49 2022 +0530
+
+--------------------------------------------------------------------------------------------------------------------------------------

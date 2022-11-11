@@ -1,0 +1,163 @@
+MERGE – CONFLICT
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2 (master)
+$ cd merge-conflict
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-conflict (master)
+$ source setup.sh
+Initialized empty Git repository in C:/Users/JahnaviP/Desktop/dummy2/merge-conflict/exercise/.git/
+[master (root-commit) 8327a10] Add file greeting.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 greeting.txt
+warning: in the working copy of 'greeting.txt', LF will be replaced by CRLF the next time Git touches it
+[master 2edb8c7] Add content to greeting.txt
+ 1 file changed, 1 insertion(+)
+Switched to a new branch 'merge-conflict-branch1'
+warning: in the working copy of 'file.txt', LF will be replaced by CRLF the next time Git touches it
+[merge-conflict-branch1 ba29a0e] add relevant fact
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file.txt
+Switched to branch 'master'
+warning: in the working copy of 'file.txt', LF will be replaced by CRLF the next time Git touches it
+[master 790bc43] add indispensable truth!
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-conflict/exercise (master)
+$ git branch
+* master
+  merge-conflict-branch1
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-conflict/exercise (master)
+$ git merge merge-conflict-branch1
+Auto-merging file.txt
+CONFLICT (add/add): Merge conflict in file.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-conflict/exercise (master)
+$ git add file.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-conflict/exercise (master)
+$ git commit -m "abc"
+[master 147da16] abc
+ 1 file changed, 4 insertions(+)
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-conflict/exercise (master)
+$ git add greeting.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-conflict/exercise (master)
+$ git commit -m "file2"
+On branch master
+nothing to commit, working tree clean
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-conflict/exercise (master)
+$ git switch merge-conflict-branch1
+Switched to branch 'merge-conflict-branch1'
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-conflict/exercise (merge-conflict-branch1)
+$ git switch master
+Switched to branch 'master'
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-conflict/exercise (master)
+$ git merge merge-conflict-branch1
+Auto-merging file.txt
+CONFLICT (add/add): Merge conflict in file.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-conflict/exercise (master|MERGING)
+$ git switch merge-conflict-branch1
+fatal: cannot switch branch while merging
+Consider "git merge --quit" or "git worktree add".
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-conflict/exercise (master|MERGING)
+$ git merge --quit
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-conflict/exercise (master)
+$ git switch merge-conflict-branch1
+error: you need to resolve your current index first
+file.txt: needs merge
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-conflict/exercise (master)
+$ git add file.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-conflict/exercise (master)
+$ git add file.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-conflict/exercise (master)
+$ git add greeting.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-conflict/exercise (master)
+$ git commit -m "committed"
+[master c82c0cb] committed
+ 1 file changed, 4 insertions(+)
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-conflict/exercise (master)
+$ git switch merge-conflict-branch1
+Switched to branch 'merge-conflict-branch1'
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-conflict/exercise (merge-conflict-branch1)
+$ ls
+file.txt  greeting.txt
+
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-conflict/exercise (master)
+$ git add -A
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-conflict/exercise (master)
+$ git commit -m "abcd"
+[master 4e11a8b] abcd
+ 1 file changed, 4 insertions(+)
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-conflict/exercise (master)
+$ git merge merge-conflict-branched1
+merge: merge-conflict-branched1 - not something we can merge
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-conflict/exercise (master)
+$ git merge merge-conflict-branch1
+Auto-merging file.txt
+CONFLICT (add/add): Merge conflict in file.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-conflict/exercise (master|MERGING)
+$ git merge merge-conflict-branch1
+error: Merging is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-conflict/exercise (maste
+$ echo "Hii" > file.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-conflict/exercise (maste
+$ git add -A
+warning: in the working copy of 'file.txt', LF will be replaced by CRLF the next
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-conflict/exercise (maste
+$ git commit -m "abcd"
+[master b2701ed] abcd
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-conflict/exercise (maste
+$ git merge merge-conflict-branch1
+Already up to date.
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-conflict/exercise (maste
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/merge-conflict/exercise (master)
+$ git log --oneline --graph
+*   b2701ed (HEAD -> master) abcd
+|\
+| * ba29a0e (merge-conflict-branch1) add relevant fact
+* | 4e11a8b abcd
+* | 23eca11 abc
+* | c82c0cb committed
+* | 147da16 abc
+* | 790bc43 add indispensable truth!
+|/
+* 2edb8c7 Add content to greeting.txt
+* 8327a10 Add file greeting.txt
+--------------------------------------------------------------------------------------------------------------------------------------

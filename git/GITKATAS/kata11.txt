@@ -1,0 +1,64 @@
+BASIC-CLEANING
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2 (master)
+$ cd basic-cleaning
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-cleaning (master)
+$ source setup.sh
+Initialized empty Git repository in C:/Users/JahnaviP/Desktop/dummy2/basic-cleaning/exercise/.git/
+warning: in the working copy of 'README.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/myapp.c', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/myapp.h', LF will be replaced by CRLF the next time Git touches it
+[master (root-commit) 8968868] C code for my app
+ 3 files changed, 3 insertions(+)
+ create mode 100644 README.txt
+ create mode 100644 src/myapp.c
+ create mode 100644 src/myapp.h
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-cleaning/exercise (master)
+$ ls -R
+.:
+README.txt  README.txt~  obj/  src/
+
+./obj:
+a.out  myapp.o  mylib.a  mylib.o
+
+./src:
+myapp.c  myapp.c~  myapp.h  mylib.c  oldfile.c~
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-cleaning/exercise (master)
+$ -n
+bash: -n: command not found
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-cleaning/exercise (master)
+$ git clean -n
+Would remove README.txt~
+Would remove src/myapp.c~
+Would remove src/mylib.c
+Would remove src/oldfile.c~
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-cleaning/exercise (master)
+$ git add src/mylib.c
+warning: in the working copy of 'src/mylib.c', LF will be replaced by CRLF the next time Git touches it
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-cleaning/exercise (master)
+$ git clean -n
+Would remove README.txt~
+Would remove src/myapp.c~
+Would remove src/oldfile.c~
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-cleaning/exercise (master)
+$ git clean -n -d
+Would remove README.txt~
+Would remove obj/
+Would remove src/myapp.c~
+Would remove src/oldfile.c~
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-cleaning/exercise (master)
+$ git clean -f -d
+Removing README.txt~
+Removing obj/
+Removing src/myapp.c~
+Removing src/oldfile.c~
+
+--------------------------------------------------------------------------------------------------------------------------------------

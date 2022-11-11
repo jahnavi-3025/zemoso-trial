@@ -1,0 +1,216 @@
+BASIC STASHING
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2 (master)
+$ cd basic-stashing
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-stashing (master)
+$ source setup.sh
+Initialized empty Git repository in C:/Users/JahnaviP/Desktop/dummy2/basic-stashing/exercise/.git/
+Successfully configured local username and email
+Successfully disable local GPG signing
+warning: in the working copy of 'file.txt', LF will be replaced by CRLF the next time Git touches it
+[master (root-commit) d6a3132] Initial commit
+ 2 files changed, 1 insertion(+)
+ create mode 100644 file.txt
+ create mode 100644 fix.txt
+warning: in the working copy of 'bug.txt', LF will be replaced by CRLF the next time Git touches it
+[master e4640a5] add bug.txt
+ 1 file changed, 1 insertion(+)
+ create mode 100644 bug.txt
+warning: in the working copy of 'file.txt', LF will be replaced by CRLF the next time Git touches it
+Successfully unset local username and email
+Successfully unset local GPG signing
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-stashing/exercise (master)
+$ ls
+bug.txt  file.txt  fix.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-stashing/exercise (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   file.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file.txt
+        modified:   fix.txt
+
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-stashing/exercise (master)
+$ git stage
+Nothing specified, nothing added.
+hint: Maybe you wanted to say 'git add .'?
+hint: Turn this message off by running
+hint: "git config advice.addEmptyPathspec false"
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-stashing/exercise (master)
+$ git log
+commit e4640a5a2c1c5e2f634f417ed761dc097f58909b (HEAD -> master)
+Author: git-katas trainer bot <git-katas@example.com>
+Date:   Thu Nov 10 12:14:58 2022 +0530
+
+    add bug.txt
+
+commit d6a31326523f8fa58407ea6f6cdd51a208f5b186
+Author: git-katas trainer bot <git-katas@example.com>
+Date:   Thu Nov 10 12:14:57 2022 +0530
+
+    Initial commit
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-stashing/exercise (master)
+$ cat bug.txt
+this file haaasss some typos
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-stashing/exercise (master)
+$ git stash
+warning: in the working copy of 'file.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'fix.txt', LF will be replaced by CRLF the next time Git touches it
+Saved working directory and index state WIP on master: e4640a5 add bug.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-stashing/exercise (master)
+$ ls
+bug.txt  file.txt  fix.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-stashing/exercise (master)
+$ ls -a
+./  ../  .git/  bug.txt  file.txt  fix.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-stashing/exercise (master)
+$ git log
+commit e4640a5a2c1c5e2f634f417ed761dc097f58909b (HEAD -> master)
+Author: git-katas trainer bot <git-katas@example.com>
+Date:   Thu Nov 10 12:14:58 2022 +0530
+
+    add bug.txt
+
+commit d6a31326523f8fa58407ea6f6cdd51a208f5b186
+Author: git-katas trainer bot <git-katas@example.com>
+Date:   Thu Nov 10 12:14:57 2022 +0530
+
+    Initial commit
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-stashing/exercise (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-stashing/exercise (master)
+$ git stash list
+stash@{0}: WIP on master: e4640a5 add bug.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-stashing/exercise (master)
+$ vi bug.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-stashing/exercise (master)
+$ git add bug.txt
+warning: in the working copy of 'bug.txt', LF will be replaced by CRLF the next time Git touches it
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-stashing/exercise (master)
+$ git commit -m "Committed"
+[master 6b5395b] Committed
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-stashing/exercise (master)
+$ git stash master
+fatal: subcommand wasn't specified; 'push' can't be assumed due to unexpected token 'master'
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-stashing/exercise (master)
+$ git stash apply
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file.txt
+        modified:   fix.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-stashing/exercise (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file.txt
+        modified:   fix.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-stashing/exercise (master)
+$ git reset --hard HEAD
+HEAD is now at 6b5395b Committed
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-stashing/exercise (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-stashing/exercise (master)
+$ git stash apply --index
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   file.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file.txt
+        modified:   fix.txt
+
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-stashing/exercise (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   file.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file.txt
+        modified:   fix.txt
+
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-stashing/exercise (master)
+$ git drop stash
+git: 'drop' is not a git command. See 'git --help'.
+
+The most similar command is
+        grep
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-stashing/exercise (master)
+$ git stash drop
+Dropped refs/stash@{0} (55e185828670ad321741db4e5c8a2d2f50123f85)
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-stashing/exercise (master)
+$ git stash list
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-stashing/exercise (master)
+$ git log
+commit 6b5395b5ef16aa295414380ffa0417229108426c (HEAD -> master)
+Author: Jahnavi Peddineni <jahnavi.peddineni@zemosolabs.com>
+Date:   Thu Nov 10 12:19:15 2022 +0530
+
+    Committed
+
+commit e4640a5a2c1c5e2f634f417ed761dc097f58909b
+Author: git-katas trainer bot <git-katas@example.com>
+Date:   Thu Nov 10 12:14:58 2022 +0530
+
+    add bug.txt
+
+commit d6a31326523f8fa58407ea6f6cdd51a208f5b186
+Author: git-katas trainer bot <git-katas@example.com>
+Date:   Thu Nov 10 12:14:57 2022 +0530
+
+    Initial commit
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/dummy2/basic-stashing/exercise (master)
+$ git log --oneline
+6b5395b (HEAD -> master) Committed
+e4640a5 add bug.txt
+d6a3132 Initial commit
