@@ -1,0 +1,364 @@
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~
+$ cd Desktop
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop (master)
+$ mkdir first_git_repo
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop (master)
+$ cd first_git_repo
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/first_git_repo (master)
+$ touch hello_world.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/first_git_repo (master)
+$ vi hello_world.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/first_git_repo (master)
+$ git add hello_world.txt
+warning: in the working copy of 'first_git_repo/hello_world.txt', LF will be replaced by CRLF the next time Git touches it
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/first_git_repo (master)
+$ git commit -m "Created hello world file"
+[master 0ac110d] Created hello world file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 first_git_repo/hello_world.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/first_git_repo (master)
+$ git remote add origin https://github.com/jahnavi-3025/zemoso-training.git
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/first_git_repo (master)
+$ git branch -M main
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/first_git_repo (main)
+$ git push -u origin main
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (8/8), 1.75 KiB | 893.00 KiB/s, done.
+Total 8 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/jahnavi-3025/zemoso-training.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/first_git_repo (main)
+$ git log --oneline
+0ac110d (HEAD -> main, origin/main) Created hello world file
+1fb55b0 (my_branch) Created a file
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/first_git_repo (main)
+$ $ git grep -l ' to ' | xargs sed -i 's/ to / jahnavi /g' file.txt
+bash: $: command not found
+sed: can't read file.txt: No such file or directory
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/first_git_repo (main)
+$ $ git grep -l ' to ' | xargs sed -i 's/ to / jahnavi /g' hello_world.txt
+bash: $: command not found
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/first_git_repo (main)
+$ git grep -l ' to ' | xargs sed -i 's/ to / jahnavi /g' hello_world.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/first_git_repo (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   hello_world.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        ../08022022 M-AI PRINT COPY .docx
+        ../1261037_SIVA_20221006070536724.pdf
+        ../AI/
+        ../AIKHYAM Poster (Zoom Virtual Background).png
+        ../AIML-PROJECT/
+        ../Bootstrap/
+        ../CN/
+        ../Cisco Webex Meetings.lnk
+        ../Class Diag-MHR.png
+        ../Discord.lnk
+        ../Eclipse IDE for Java Developers - 2021-06.lnk
+        ../Final mini project(MHR) (AutoRecovered).docx
+        ../Inventory project.docx
+        ../Inventory project.pdf
+        ../MHR final mini project report jahnavi.docx
+        ../MHR final mini project report.docx
+        ../MHR/
+        ../Mental MAdhilo.docx
+        ../NEN/
+        ../NSS CSE.xlsx
+        "../Novor\303\251sum\303\251.html"
+        "../Novor\303\251sum\303\251_files/"
+        ../OP Screens/
+        ../OS/
+        ../QUZZICAL KARMA- Final presentation.pptx
+        ../RACHU/
+        ../Rampally property tax mgmt 1.docx
+        ../TCS Application (1).pdf
+        ../TCS Application edited.pdf
+        ../TR topics.txt
+        ../Telegram.lnk
+        ../WhatsApp.lnk
+        ../Zoom.lnk
+        ../das/
+        ../desktop.ini
+        ../doc.pdf
+        ../dummy/
+        ../dummy2/
+        ../eSign_Offer_Generation-Jahnavi.pdf
+        ../front end/
+        ../git/
+        ../irctc.png
+        ../my_zemoso/Branches scenarios.txt
+        ../my_zemoso/Committing changes.txt
+        ../my_zemoso/Finding bugs.txt
+        ../my_zemoso/NOVEMBER.docx
+        ../my_zemoso/Remotely Scenario.txt
+        ../my_zemoso/Undoing Changes.txt
+        ../my_zemoso/committing files.txt
+        ../my_zemoso/ignore.txt
+        ../my_zemoso/merge_conflict Scenario.txt
+        ../my_zemoso/re-Write history Scenario.txt
+        ../my_zemoso/submodules.txt
+        ../my_zemoso/~$VEMBER.docx
+        ../si/
+        ../usecase-MHR.png
+        ../zemoso.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/first_git_repo (main)
+$ git log --oneline
+0ac110d (HEAD -> main, origin/main) Created hello world file
+1fb55b0 (my_branch) Created a file
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/first_git_repo (main)
+$ git add hello_world.txt
+warning: in the working copy of 'first_git_repo/hello_world.txt', LF will be replaced by CRLF the next time Git touches it
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/first_git_repo (main)
+$ git commit -m "Chnaged to name"
+[main c43de4f] Chnaged to name
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/first_git_repo (main)
+$ git log --oneline
+c43de4f (HEAD -> main) Chnaged to name
+0ac110d (origin/main) Created hello world file
+1fb55b0 (my_branch) Created a file
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/first_git_repo (main)
+$ git diff c43de4f 0ac110d
+diff --git a/first_git_repo/hello_world.txt b/first_git_repo/hello_world.txt
+index 9524ed9..bab22f2 100644
+--- a/first_git_repo/hello_world.txt
++++ b/first_git_repo/hello_world.txt
+@@ -1 +1 @@
+-Git development began in April 2005 after many developers of the Linux kernel gave up access jahnavi BitKeeper, a proprietary source control management system that had previously been used jahnavi maintain the project.[10] The copyright holder of BitKeeper, Larry McVoy, had withdrawn gratis use of the product after claiming that Andrew Tridgell had reverse-engineered the BitKeeper protocols. Torvalds wanted a distributed system that he could use like BitKeeper, but none of the available free systems met his needs, particularly in terms of performance. Torvalds took an example of an SCM system requiring thirty seconds jahnavi apply a patch and update all associated metadata, and noted that this would not scale jahnavi the needs of Linux kernel development, where syncing with fellow maintainers could require 250 such actions at a time. He wanted patching jahnavi take three seconds,[6] and had several other design criteria in mind: take Concurrent Versions System (CVS) as an example of what not jahnavi do; if in doubt, make the exact opposite decision[8] support a distributed, BitKeeper-like workflow[8] very strong safeguards against corruption, either accidental or malicious.[7] These three criteria eliminated every then-existing version control system, except for Monotone. Considering performance excluded this too.[8] So immediately after the 2.6.12-rc2 Linux kernel development release,[8] Torvalds set out jahnavi write his own.[8] Torvalds has quipped about the name git, which is British English slang meaning "unpleasant person". Torvalds said: "I'm an egotistical bastard, and I name all my projects after myself. First 'Linux', now 'git'."[11][12] The man page describes Git as "the stupid content tracker".[13] The development of Git began on 3 April 2005.[14] The project was announced on 6 April,[15] and became self-hosting as of 7 April.[14] The first merge of multiple branches was done on 18 April.[16] Torvalds achieved his performance goals; on 29 April, the nascent Git was benchmarked recording patches jahnavi the Linux kernel tree at the rate of 6.7 per second.[17] On 16 June Git managed the kernel 2.6.12 release.[18] Torvalds turned over maintenance on 26 July 2005 jahnavi Junio Hamano, a major contributor jahnavi the project.[19] Hamano was responsible for the 1.0 release on 21 December 2005, and remains the project's maintainer.[20]
++Git development began in April 2005 after many developers of the Linux kernel gave up access to BitKeeper, a proprietary source control management system that had previously been used to maintain the project.[10] The copyright holder of BitKeeper, Larry McVoy, had withdrawn gratis use of the product after claiming that Andrew Tridgell had reverse-engineered the BitKeeper protocols. Torvalds wanted a distributed system that he could use like BitKeeper, but none of the available free systems met his needs, particularly in terms of performance. Torvalds took an example of an SCM system requiring thirty seconds to apply a patch and update all associated metadata, and noted that this would not scale to the needs of Linux kernel development, where syncing with fellow maintainers could require 250 such actions at a time. He wanted patching to take three seconds,[6] and had several other design criteria in mind: take Concurrent Versions System (CVS) as an example of what not to do; if in doubt, make the exact opposite decision[8] support a distributed, BitKeeper-like workflow[8] very strong safeguards against corruption, either accidental or malicious.[7] These three criteria eliminated every then-existing version control system, except for Monotone. Considering performance excluded this too.[8] So immediately after the 2.6.12-rc2 Linux kernel development release,[8] Torvalds set out to write his own.[8] Torvalds has quipped about the name git, which is British English slang meaning "unpleasant person". Torvalds said: "I'm an egotistical bastard, and I name all my projects after myself. First 'Linux', now 'git'."[11][12] The man page describes Git as "the stupid content tracker".[13] The development of Git began on 3 April 2005.[14] The project was announced on 6 April,[15] and became self-hosting as of 7 April.[14] The first merge of multiple branches was done on 18 April.[16] Torvalds achieved his performance goals; on 29 April, the nascent Git was benchmarked recording patches to the Linux kernel tree at the rate of 6.7 per second.[17] On 16 June Git managed the kernel 2.6.12 release.[18] Torvalds turned over maintenance on 26 July 2005 to Junio Hamano, a major contributor to the project.[19] Hamano was responsible for the 1.0 release on 21 December 2005, and remains the project's maintainer.[20]
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/first_git_repo (main)
+$ git push -u origin main
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (4/4), 458 bytes | 458.00 KiB/s, done.
+Total 4 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/jahnavi-3025/zemoso-training.git
+   0ac110d..c43de4f  main -> main
+branch 'main' set up to track 'origin/main'.
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/first_git_repo (main)
+$ git revert HEAD
+[main 9254774] Revert "Chnaged to name"
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/first_git_repo (main)
+$ git log --oneline
+9254774 (HEAD -> main) Revert "Chnaged to name"
+c43de4f (origin/main) Chnaged to name
+0ac110d Created hello world file
+1fb55b0 (my_branch) Created a file
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/first_git_repo (main)
+$ git diff 9254774 c43de4f
+diff --git a/first_git_repo/hello_world.txt b/first_git_repo/hello_world.txt
+index bab22f2..9524ed9 100644
+--- a/first_git_repo/hello_world.txt
++++ b/first_git_repo/hello_world.txt
+@@ -1 +1 @@
+-Git development began in April 2005 after many developers of the Linux kernel gave up access to BitKeeper, a proprietary source control management system that had previously been used to maintain the project.[10] The copyright holder of BitKeeper, Larry McVoy, had withdrawn gratis use of the product after claiming that Andrew Tridgell had reverse-engineered the BitKeeper protocols. Torvalds wanted a distributed system that he could use like BitKeeper, but none of the available free systems met his needs, particularly in terms of performance. Torvalds took an example of an SCM system requiring thirty seconds to apply a patch and update all associated metadata, and noted that this would not scale to the needs of Linux kernel development, where syncing with fellow maintainers could require 250 such actions at a time. He wanted patching to take three seconds,[6] and had several other design criteria in mind: take Concurrent Versions System (CVS) as an example of what not to do; if in doubt, make the exact opposite decision[8] support a distributed, BitKeeper-like workflow[8] very strong safeguards against corruption, either accidental or malicious.[7] These three criteria eliminated every then-existing version control system, except for Monotone. Considering performance excluded this too.[8] So immediately after the 2.6.12-rc2 Linux kernel development release,[8] Torvalds set out to write his own.[8] Torvalds has quipped about the name git, which is British English slang meaning "unpleasant person". Torvalds said: "I'm an egotistical bastard, and I name all my projects after myself. First 'Linux', now 'git'."[11][12] The man page describes Git as "the stupid content tracker".[13] The development of Git began on 3 April 2005.[14] The project was announced on 6 April,[15] and became self-hosting as of 7 April.[14] The first merge of multiple branches was done on 18 April.[16] Torvalds achieved his performance goals; on 29 April, the nascent Git was benchmarked recording patches to the Linux kernel tree at the rate of 6.7 per second.[17] On 16 June Git managed the kernel 2.6.12 release.[18] Torvalds turned over maintenance on 26 July 2005 to Junio Hamano, a major contributor to the project.[19] Hamano was responsible for the 1.0 release on 21 December 2005, and remains the project's maintainer.[20]
++Git development began in April 2005 after many developers of the Linux kernel gave up access jahnavi BitKeeper, a proprietary source control management system that had previously been used jahnavi maintain the project.[10] The copyright holder of BitKeeper, Larry McVoy, had withdrawn gratis use of the product after claiming that Andrew Tridgell had reverse-engineered the BitKeeper protocols. Torvalds wanted a distributed system that he could use like BitKeeper, but none of the available free systems met his needs, particularly in terms of performance. Torvalds took an example of an SCM system requiring thirty seconds jahnavi apply a patch and update all associated metadata, and noted that this would not scale jahnavi the needs of Linux kernel development, where syncing with fellow maintainers could require 250 such actions at a time. He wanted patching jahnavi take three seconds,[6] and had several other design criteria in mind: take Concurrent Versions System (CVS) as an example of what not jahnavi do; if in doubt, make the exact opposite decision[8] support a distributed, BitKeeper-like workflow[8] very strong safeguards against corruption, either accidental or malicious.[7] These three criteria eliminated every then-existing version control system, except for Monotone. Considering performance excluded this too.[8] So immediately after the 2.6.12-rc2 Linux kernel development release,[8] Torvalds set out jahnavi write his own.[8] Torvalds has quipped about the name git, which is British English slang meaning "unpleasant person". Torvalds said: "I'm an egotistical bastard, and I name all my projects after myself. First 'Linux', now 'git'."[11][12] The man page describes Git as "the stupid content tracker".[13] The development of Git began on 3 April 2005.[14] The project was announced on 6 April,[15] and became self-hosting as of 7 April.[14] The first merge of multiple branches was done on 18 April.[16] Torvalds achieved his performance goals; on 29 April, the nascent Git was benchmarked recording patches jahnavi the Linux kernel tree at the rate of 6.7 per second.[17] On 16 June Git managed the kernel 2.6.12 release.[18] Torvalds turned over maintenance on 26 July 2005 jahnavi Junio Hamano, a major contributor jahnavi the project.[19] Hamano was responsible for the 1.0 release on 21 December 2005, and remains the project's maintainer.[20]
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/first_git_repo (main)
+$ git checkout -b new_branch
+Switched to a new branch 'new_branch'
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/first_git_repo (new_branch)
+$ git grep -l ' Torvalds ' | xargs sed -i 's/ Torvalds / jahnavi /g' hello_world.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/first_git_repo (new_branch)
+$ git add hello_world.txt
+warning: in the working copy of 'first_git_repo/hello_world.txt', LF will be replaced by CRLF the next time Git touches it
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/first_git_repo (new_branch)
+$ git commit -m "Chnaged Torvalds to name"
+[new_branch 0e0b6a0] Chnaged Torvalds to name
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/first_git_repo (new_branch)
+$ git push -u origin new_branch
+Enumerating objects: 11, done.
+Counting objects: 100% (11/11), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (8/8), 856 bytes | 856.00 KiB/s, done.
+Total 8 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+remote:
+remote: Create a pull request for 'new_branch' on GitHub by visiting:
+remote:      https://github.com/jahnavi-3025/zemoso-training/pull/new/new_branch
+remote:
+To https://github.com/jahnavi-3025/zemoso-training.git
+ * [new branch]      new_branch -> new_branch
+branch 'new_branch' set up to track 'origin/new_branch'.
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/first_git_repo (new_branch)
+$ git switch main
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/first_git_repo (main)
+$ git pull origin new_branch
+From https://github.com/jahnavi-3025/zemoso-training
+ * branch            new_branch -> FETCH_HEAD
+Updating 9254774..0e0b6a0
+Fast-forward
+ first_git_repo/hello_world.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/first_git_repo (main)
+$ ls
+hello_world.txt
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/first_git_repo (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        ../08022022 M-AI PRINT COPY .docx
+        ../1261037_SIVA_20221006070536724.pdf
+        ../AI/
+        ../AIKHYAM Poster (Zoom Virtual Background).png
+        ../AIML-PROJECT/
+        ../Bootstrap/
+        ../CN/
+        ../Cisco Webex Meetings.lnk
+        ../Class Diag-MHR.png
+        ../Discord.lnk
+        ../Eclipse IDE for Java Developers - 2021-06.lnk
+        ../Final mini project(MHR) (AutoRecovered).docx
+        ../Inventory project.docx
+        ../Inventory project.pdf
+        ../MHR final mini project report jahnavi.docx
+        ../MHR final mini project report.docx
+        ../MHR/
+        ../Mental MAdhilo.docx
+        ../NEN/
+        ../NSS CSE.xlsx
+        "../Novor\303\251sum\303\251.html"
+        "../Novor\303\251sum\303\251_files/"
+        ../OP Screens/
+        ../OS/
+        ../QUZZICAL KARMA- Final presentation.pptx
+        ../RACHU/
+        ../Rampally property tax mgmt 1.docx
+        ../TCS Application (1).pdf
+        ../TCS Application edited.pdf
+        ../TR topics.txt
+        ../Telegram.lnk
+        ../WhatsApp.lnk
+        ../Zoom.lnk
+        ../das/
+        ../desktop.ini
+        ../doc.pdf
+        ../dummy/
+        ../dummy2/
+        ../eSign_Offer_Generation-Jahnavi.pdf
+        ../front end/
+        ../git/
+        ../irctc.png
+        ../my_zemoso/Branches scenarios.txt
+        ../my_zemoso/Committing changes.txt
+        ../my_zemoso/Finding bugs.txt
+        ../my_zemoso/NOVEMBER.docx
+        ../my_zemoso/Remotely Scenario.txt
+        ../my_zemoso/Undoing Changes.txt
+        ../my_zemoso/committing files.txt
+        ../my_zemoso/ignore.txt
+        ../my_zemoso/merge_conflict Scenario.txt
+        ../my_zemoso/re-Write history Scenario.txt
+        ../my_zemoso/submodules.txt
+        ../my_zemoso/~$VEMBER.docx
+        ../si/
+        ../usecase-MHR.png
+        ../zemoso.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/first_git_repo (main)
+$ git log --oneline
+0e0b6a0 (HEAD -> main, origin/new_branch, new_branch) Chnaged Torvalds to name
+9254774 Revert "Chnaged to name"
+c43de4f (origin/main) Chnaged to name
+0ac110d Created hello world file
+1fb55b0 (my_branch) Created a file
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/first_git_repo (main)
+$ cd ..
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop (main)
+$ mkdir git_clone_repo
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop (main)
+$ cd git_clone_repo
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/git_clone_repo (main)
+$ git clone https://github.com/jahnavi-3025/zemoso-training.git
+Cloning into 'zemoso-training'...
+remote: Enumerating objects: 18, done.
+remote: Counting objects: 100% (18/18), done.
+remote: Compressing objects: 100% (10/10), done.
+remote: Total 18 (delta 3), reused 16 (delta 2), pack-reused 0
+Receiving objects: 100% (18/18), done.
+Resolving deltas: 100% (3/3), done.
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/git_clone_repo (main)
+$ ls
+zemoso-training/
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/git_clone_repo (main)
+$ cd zemoso-training
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/git_clone_repo/zemoso-training (main)
+$ ls
+first_git_repo/  my_zemoso/
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/git_clone_repo/zemoso-training (main)
+$ cd ..
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop/git_clone_repo (main)
+$ cd ..
+
+JahnaviP@LAPTOP-S6BL64S9 MINGW64 ~/Desktop (main)
+$ cd first_git_repo
